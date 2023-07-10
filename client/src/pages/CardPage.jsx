@@ -30,7 +30,7 @@ function CardPage() {
             </div>
           </div>
           <h1 className="text">
-            Happy Nine <br /> Beatiful!
+            Happy Nine <br /> Beautiful!
           </h1>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { send, RESPONSE_CODE, RESPONSE_MESSAGE } from "./tools/message.js";
 const app = express();
 const api = "/api";
 
-app.use(cors({ origin: "https://happynine.netlify.app/" }));
+app.use(cors({ origin: "*" }));
 app.use(morgan("dev"));
 app.use(express.json());
 

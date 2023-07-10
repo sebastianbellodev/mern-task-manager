@@ -7,7 +7,7 @@ import { send, RESPONSE_CODE, RESPONSE_MESSAGE } from "./tools/message.js";
 const app = express();
 const api = "/api";
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://react-express-project.onrender.com/api" }));
 app.use(morgan("dev"));
 app.use(express.json());
 

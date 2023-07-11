@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { RESPONSE_MESSAGE } from "../../tools/message.js";
+import { RESPONSE_MESSAGE } from "../tools/message.js";
 
 export const loginObject = z.object({
   username: z

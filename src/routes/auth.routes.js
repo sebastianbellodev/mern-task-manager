@@ -1,12 +1,11 @@
 import { Router } from "express";
 import { login } from "../controllers/auth.controllers.js";
-import { validate } from "../auth/basic/basic.js";
-validate;
+import { validateBasic } from "../security/basic/basic.js";
 import { validateData } from "../middlewares/validator.middlewares.js";
-import { loginObject } from "../data/validations/auth.validations.js";
+import { loginObject } from "../validations/auth.validations.js";
 
 const router = Router();
 
-router.post("/login", validate, validateData(loginObject), login);
+router.post("/login", validateBasic, validateData(loginObject), login);
 
 export default router;

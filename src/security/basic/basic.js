@@ -6,13 +6,17 @@ export const validateBasic = (req, res, next) => {
   const auth = basicAuth(req);
   if (!auth) {
     res.set("WWW-Authenticate", 'Basic realm ="Secure"');
-    return send(res, RESPONSE_CODE.UNAUTHORIZED, RESPONSE_MESSAGE.FORBIDDEN);
+    return send(res, RESPONSE_CODE.UNAUTHORIZED, RESPONSE_MESSAGE.UNAUTHORIZED);
   } else {
     if (verifyBasic(auth.name, auth.pass)) {
       next();
     } else {
       res.set("WWW-Authenticate", 'Basic realm ="Secure"');
-      return send(res, RESPONSE_CODE.UNAUTHORIZED, RESPONSE_MESSAGE.FORBIDDEN);
+      return send(
+        res,
+        RESPONSE_CODE.UNAUTHORIZED,
+        RESPONSE_MESSAGE.UNAUTHORIZED
+      );
     }
   }
 };

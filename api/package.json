@@ -1,5 +1,5 @@
 {
-  "name": "react-express-task-manager",
+  "name": "task-crud-auth",
   "version": "1.0.0",
   "description": "RESTful API",
   "type": "module",

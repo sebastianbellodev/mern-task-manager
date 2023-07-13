@@ -1,6 +1,6 @@
-# Node.js API with React Client and MongoDB storage
+# Node.js API connected with MongoDB with React Client
 
-This repository contains a project that includes a Node.js RESTful API server along with client applications built with React and MongoDB storage.
+This repository contains a project that includes a Node.js RESTful API connected to MongoDB server, along with a client application built with React.
 
 ## Key Features
 
@@ -24,4 +24,4 @@ If you encounter any issues, have questions, or would like to provide feedback, 
 
 ## Acknowledgments
 
-Many thanks to Fazt Code and his [tutorial](https://www.youtube.com/watch?v=NmkY4JgS21A).
+Many thanks to [Fazt Code](https://www.faztweb.com/).

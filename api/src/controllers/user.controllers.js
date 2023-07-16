@@ -19,7 +19,7 @@ export const profile = async (req, res) => {
     });
   } catch (error) {
     return res
-      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .status(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
       .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };

@@ -40,7 +40,7 @@ export const signup = async (req, res) => {
     return res.status(RESPONSE_CODE.CREATED).json(format(document));
   } catch (error) {
     return res
-      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .status(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
       .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };
@@ -68,7 +68,7 @@ export const login = async (req, res) => {
     return res.status(RESPONSE_CODE.OK).json(format(document));
   } catch (error) {
     return res
-      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .status(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
       .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };
@@ -79,7 +79,7 @@ export const logout = (req, res) => {
     return res.sendStatus(204);
   } catch (error) {
     return res
-      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .status(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
       .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };

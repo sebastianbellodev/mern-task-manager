@@ -32,7 +32,9 @@ export const getTasks = async (req, res) => {
 
     return res.status(RESPONSE_CODE.OK).json(document);
   } catch (error) {
-    return res.status(RESPONSE_CODE.INTERNAL_SERVER_ERROR).json([error]);
+    return res
+      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };
 
@@ -47,7 +49,9 @@ export const getTask = async (req, res) => {
 
     return res.status(RESPONSE_CODE.OK).json(format(document));
   } catch (error) {
-    return res.status(RESPONSE_CODE.INTERNAL_SERVER_ERROR).json([error]);
+    return res
+      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };
 
@@ -72,7 +76,9 @@ export const postTask = async (req, res) => {
       update: document.updatedAt,
     });
   } catch (error) {
-    return res.status(RESPONSE_CODE.INTERNAL_SERVER_ERROR).json([error]);
+    return res
+      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };
 
@@ -104,6 +110,8 @@ export const putTask = async (req, res) => {
 
     return res.status(RESPONSE_CODE.OK).json(format(document));
   } catch (error) {
-    return res.status(RESPONSE_CODE.INTERNAL_SERVER_ERROR).json([error]);
+    return res
+      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };

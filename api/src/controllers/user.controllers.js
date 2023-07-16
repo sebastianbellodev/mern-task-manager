@@ -18,6 +18,8 @@ export const profile = async (req, res) => {
       update: document.updatedAt,
     });
   } catch (error) {
-    return res.status(RESPONSE_CODE.INTERNAL_SERVER_ERROR).json([error]);
+    return res
+      .sendStatus(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
+      .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
 };

@@ -13,7 +13,9 @@ export const signupSchema = z.object({
     .string({
       required_error: RESPONSE_MESSAGE.EMAIL_REQUIRED,
     })
-    .email()
+    .email({
+      message: RESPONSE_MESSAGE.EMAIL_NOT_VALID,
+    })
     .max(40, {
       message: RESPONSE_MESSAGE.EMAIL_OVERFLOW,
     }),
@@ -34,7 +36,9 @@ export const loginSchema = z.object({
     .string({
       required_error: RESPONSE_MESSAGE.EMAIL_REQUIRED,
     })
-    .email()
+    .email({
+      message: RESPONSE_MESSAGE.EMAIL_NOT_VALID,
+    })
     .max(40, {
       message: RESPONSE_MESSAGE.EMAIL_OVERFLOW,
     }),

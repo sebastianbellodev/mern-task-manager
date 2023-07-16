@@ -13,7 +13,7 @@ export const RESPONSE_CODE = {
 export const RESPONSE_MESSAGE = {
   UNAUTHORIZED: "Unauthorized resource",
   FORBIDDEN: "Forbidden resource",
-  INTERNAL_SERVER_ERROR: "Something went wrong",
+  INTERNAL_SERVER_ERROR: "Ups! Something went wrong",
   URL_NOT_FOUND: "URL not found",
 
   USERNAME_REQUIRED: "Username required",
@@ -24,6 +24,8 @@ export const RESPONSE_MESSAGE = {
   EMAIL_OVERFLOW: "Email must have less than 40 characters",
   PASSWORD_OVERFLOW: "Password must have less than 30 characters",
   PASSWORD_UNDERFLOW: "Password must have at least 8 characters",
+
+  EMAIL_NOT_VALID: "Invalid email",
 
   TITLE_REQUIRED: "Title required",
   DESCRIPTION_REQUIRED: "Description required",

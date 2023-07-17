@@ -107,6 +107,6 @@ export const verifyToken = async (req, res) => {
         .status(RESPONSE_CODE.UNAUTHORIZED)
         .json([RESPONSE_MESSAGE.UNAUTHORIZED]);
 
-    return res.json(format(document));
+    return res.status(RESPONSE_CODE.OK).json(format(document));
   });
 };

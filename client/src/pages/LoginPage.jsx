@@ -20,7 +20,7 @@ function LoginPage() {
   const onSubmit = handleSubmit((values) => login(values));
 
   return (
-    <div className="flex h-[calc(100vh-30px)] w-screen items-center justify-center">
+    <div className="flex h-[calc(100vh-100px)] w-screen items-center justify-center">
       <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
         {loginErrors.map((error, i) => (
           <div

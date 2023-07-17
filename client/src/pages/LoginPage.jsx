@@ -20,7 +20,7 @@ function LoginPage() {
   const onSubmit = handleSubmit((values) => login(values));
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-[calc(100vh-30px)] w-screen items-center justify-center">
       <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
         {loginErrors.map((error, i) => (
           <div
@@ -54,12 +54,12 @@ function LoginPage() {
           )}
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-2"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-4"
           >
             Log in
           </button>
         </form>
-        <p className="flex gap-x-2 my-2">
+        <p className="flex gap-x-2 my-1">
           Don&#39;t have an account?{" "}
           <Link to="/signup" className="text-blue-400">
             Sign up

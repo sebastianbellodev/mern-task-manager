@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext.jsx";
 import PasswordStrengthBar from "react-password-strength-bar";
@@ -23,8 +23,19 @@ function SignupPage() {
     signup(values);
   });
 
+  const password = useRef({});
+  password.current = watch("password", "");
+
+  const validatePasswordConfirmation = (value) => {
+    if (value === password.current) {
+      return true;
+    } else {
+      return "Passwords do not match";
+    }
+  };
+
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex h-[calc(100vh-1px)] w-screen items-center justify-center">
       <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
         {signupErrors.map((error, i) => (
           <div
@@ -72,22 +83,22 @@ function SignupPage() {
           <input
             type="password"
             {...register("confirm", {
-              required: true,
-              validate: (value) => value === watch("password"),
+              required: "Password confirmation is required",
+              validate: validatePasswordConfirmation,
             })}
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
             placeholder="Confirm password"
           />
           {errors.confirm && (
-            <p className="text-red-300 my-1">Passwords do not match</p>
+            <p className="text-red-300 my-1">{errors.confirm.message}</p>
           )}
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-2"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-4"
           >
             Sign up
           </button>
-          <p className="flex gap-x-2 my-2">
+          <p className="flex gap-x-2 my-1">
             Have an account?{" "}
             <Link to="/login" className="text-blue-400">
               Log in

@@ -1,7 +1,9 @@
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import User from "../models/user.models.js";
 import { createToken } from "../security/bearer/bearer.js";
 import { RESPONSE_CODE, RESPONSE_MESSAGE } from "../tools/message.js";
+import { BEARER_KEY } from "../security/bearer/config/config.js";
 
 const format = (document) => {
   return {
@@ -52,14 +54,14 @@ export const login = async (req, res) => {
 
     if (!document)
       return res
-        .status(RESPONSE_CODE.NOT_FOUND)
+        .status(RESPONSE_CODE.UNAUTHORIZED)
         .json([RESPONSE_MESSAGE.UNSUCCESSFUL_LOGIN]);
 
     const isMatch = await bcrypt.compare(password, document.password);
 
     if (!isMatch)
       return res
-        .status(RESPONSE_CODE.NOT_FOUND)
+        .status(RESPONSE_CODE.UNAUTHORIZED)
         .json([RESPONSE_MESSAGE.UNSUCCESSFUL_LOGIN]);
 
     const token = await createToken({ id: document._id });
@@ -82,4 +84,29 @@ export const logout = (req, res) => {
       .status(RESPONSE_CODE.INTERNAL_SERVER_ERROR)
       .json([RESPONSE_MESSAGE.INTERNAL_SERVER_ERROR]);
   }
+};
+
+export const verifyToken = async (req, res) => {
+  const { token } = req.cookies;
+
+  if (!token)
+    return res
+      .status(RESPONSE_CODE.UNAUTHORIZED)
+      .json([RESPONSE_MESSAGE.UNAUTHORIZED]);
+
+  jwt.verify(token, BEARER_KEY, async (error, user) => {
+    if (error)
+      return res
+        .status(RESPONSE_CODE.UNAUTHORIZED)
+        .json([RESPONSE_MESSAGE.UNAUTHORIZED]);
+
+    const document = await User.findById(user.id);
+
+    if (!document)
+      return res
+        .status(RESPONSE_CODE.UNAUTHORIZED)
+        .json([RESPONSE_MESSAGE.UNAUTHORIZED]);
+
+    return res.json(format(document));
+  });
 };

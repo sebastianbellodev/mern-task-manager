@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API, BASIC_USERNAME, BASIC_PASSWORD } from "./config/config.js";
+import { API, BASIC_USERNAME, BASIC_PASSWORD } from "../config/config.js";
 
 const instance = axios.create({
   baseURL: API,

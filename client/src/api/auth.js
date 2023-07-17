@@ -1,4 +1,4 @@
-import axios from "./axios.js";
+import axios from "./request/axios.js";
 
 export const signupRequest = (user) => axios.post("/signup", user);
 

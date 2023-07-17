@@ -35,7 +35,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-1px)] w-screen items-center justify-center">
+    <div className="flex h-[calc(100vh-100px)] w-screen items-center justify-center">
       <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
         {signupErrors.map((error, i) => (
           <div

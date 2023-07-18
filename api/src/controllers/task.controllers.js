@@ -6,6 +6,7 @@ const format = (document) => {
     id: document._id,
     title: document.title,
     description: document.description,
+    date: document.date,
     log: document.createdAt,
     update: document.updatedAt,
     user: {

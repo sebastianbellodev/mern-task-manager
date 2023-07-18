@@ -5,8 +5,8 @@ function Navbar() {
   const { authenticated, user, logout } = useAuthContext();
 
   return (
-    <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-md">
-      <Link to="/">
+    <nav className="bg-zinc-700 my-3 flex justify-between mx-10 py-5 px-10 rounded-md">
+      <Link to={authenticated ? "/tasks" : "/"}>
         <h1 className="text-2xl font-bold">Tasky</h1>
       </Link>
       <ul className="flex gap-x-2">

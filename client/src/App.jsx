@@ -15,28 +15,30 @@ function App() {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          <Navbar></Navbar>
-          <Routes>
-            <Route path="/" element={<HomePage></HomePage>}></Route>
-            <Route path="/login" element={<LoginPage></LoginPage>}></Route>
-            <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
+          <main className="">
+            <Navbar></Navbar>
+            <Routes>
+              <Route path="/" element={<HomePage></HomePage>}></Route>
+              <Route path="/login" element={<LoginPage></LoginPage>}></Route>
+              <Route path="/signup" element={<SignupPage></SignupPage>}></Route>
 
-            <Route element={<ProtectedRoute></ProtectedRoute>}>
-              <Route path="/tasks" element={<TaskPage></TaskPage>}></Route>
-              <Route
-                path="/tasks/new"
-                element={<TaskFormPage></TaskFormPage>}
-              ></Route>
-              <Route
-                path="/tasks/:id"
-                element={<TaskFormPage></TaskFormPage>}
-              ></Route>
-              <Route
-                path="/profile"
-                element={<ProfilePage></ProfilePage>}
-              ></Route>
-            </Route>
-          </Routes>
+              <Route element={<ProtectedRoute></ProtectedRoute>}>
+                <Route path="/tasks" element={<TaskPage></TaskPage>}></Route>
+                <Route
+                  path="/tasks/new"
+                  element={<TaskFormPage></TaskFormPage>}
+                ></Route>
+                <Route
+                  path="/tasks/:id"
+                  element={<TaskFormPage></TaskFormPage>}
+                ></Route>
+                <Route
+                  path="/profile"
+                  element={<ProfilePage></ProfilePage>}
+                ></Route>
+              </Route>
+            </Routes>
+          </main>
         </BrowserRouter>
       </TaskProvider>
     </AuthProvider>

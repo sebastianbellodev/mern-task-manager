@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTaskContext } from "../context/TaskContext.jsx";
+import TaskCard from "../components/TaskCard.jsx";
 
 function TaskPage() {
   const { getTasks, tasks } = useTaskContext();
@@ -9,15 +10,17 @@ function TaskPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (tasks.length === 0) return <h1>There are no tasks for you</h1>;
+  if (tasks.length === 0)
+    return (
+      <h1 className="mx-10 text-3xl font-bold text-center my-3">
+        There are no tasks
+      </h1>
+    );
 
   return (
-    <div>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-10">
       {tasks.map((task) => (
-        <div key={task.id}>
-          <h1>{task.title}</h1>
-          <p>{task.description}</p>
-        </div>
+        <TaskCard task={task} key={task.id}></TaskCard>
       ))}
     </div>
   );
